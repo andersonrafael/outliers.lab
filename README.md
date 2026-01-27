@@ -97,6 +97,54 @@ Saída em `dist/`. Para preview:
 npm run preview
 ```
 
+## Deploy no GitHub Pages
+
+O projeto está configurado para fazer deploy automático no GitHub Pages usando GitHub Actions.
+
+### Passos para fazer o deploy:
+
+1. **Criar o repositório no GitHub:**
+   - Acesse [GitHub](https://github.com) e crie um novo repositório
+   - **Importante:** Se o nome do repositório for diferente de `testeCursor`, edite o arquivo `vite.config.ts` e altere a variável `repositoryName`
+
+2. **Subir o código para o GitHub:**
+   ```bash
+   # Se ainda não inicializou o git
+   git init
+   git add .
+   git commit -m "Initial commit"
+   
+   # Adicione o repositório remoto (substitua SEU-USUARIO pelo seu usuário do GitHub)
+   git remote add origin https://github.com/SEU-USUARIO/testeCursor.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+3. **Habilitar GitHub Pages:**
+   - Vá em **Settings** > **Pages** no seu repositório
+   - Em **Source**, selecione **GitHub Actions**
+   - Salve as configurações
+
+4. **Deploy automático:**
+   - Toda vez que você fizer `git push` para a branch `main` ou `master`, o GitHub Actions fará o deploy automaticamente
+   - O site estará disponível em: `https://SEU-USUARIO.github.io/testeCursor/`
+   - O deploy leva alguns minutos na primeira vez
+
+### Deploy manual (alternativa):
+
+Se preferir fazer deploy manual:
+
+```bash
+npm run build
+# Depois, faça upload da pasta dist/ para o GitHub Pages
+```
+
+### Nota importante:
+
+- O arquivo `vite.config.ts` está configurado para usar `/testeCursor/` como base path
+- Se você mudar o nome do repositório, atualize a variável `repositoryName` no `vite.config.ts`
+- O arquivo `public/404.html` garante que o React Router funcione corretamente no GitHub Pages
+
 ## Licença
 
 Projeto de uso interno / demonstração.
