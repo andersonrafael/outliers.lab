@@ -147,4 +147,4 @@ npm run build
 
 ## Licença
 
-Projeto de uso interno / demonstração.
+Projeto de uso interno / demonstração./ repositorio local
